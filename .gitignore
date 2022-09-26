@@ -1,0 +1,7 @@
+**/**/data
+__pycache__/
+Tensho_InfoVAE/optuna
+Tensho_InfoVAE/checkpoints
+.DS_Store
+plots
+.ipynb_checkpoints
