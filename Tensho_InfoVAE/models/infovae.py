@@ -456,7 +456,7 @@ class InfoVAE(BaseVAE):
         del prior_z__kernel, z__kernel, priorz_z__kernel, prior_z
         return mmd
 
-    def sample(self, num_samples: int, current_device: int | str, **kwargs) -> Tensor:
+    def sample(self, num_samples: int, current_device: "int | str", **kwargs) -> Tensor:
         """
         Samples from the latent space and return the corresponding
         image space map.
