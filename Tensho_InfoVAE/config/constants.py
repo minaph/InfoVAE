@@ -1,4 +1,4 @@
-from typing import Any, Literal
+# from typing import Any, Literal
 from argparse import Namespace
 from optuna import Trial
 from pathlib import Path
@@ -6,7 +6,7 @@ from pathlib import Path
 __called: set = set()
 __trial: Trial = None
 __optuna_names: list[str] = []
-__optuna_mode: Literal["learning", "loss"] = None
+__optuna_mode: str = None
 
 
 # x=0.7796223602963481
@@ -53,7 +53,7 @@ def get_default_args():
     return dict(copy_kv)
 
 
-def set_optuna(trial: Trial, mode: Literal["learning", "loss"]):
+def set_optuna(trial: Trial, mode: str):
     global __trial, __optuna_mode
     __trial = trial
     __optuna_mode = mode
@@ -106,7 +106,7 @@ def namespace_optuna():
         )
 
 
-def get(name: str) -> Any:
+def get(name: str):
     global __called, __namespace
     if (name in __optuna_names) and (__trial is not None):
         return getattr(namespace_optuna(), name)
